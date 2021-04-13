@@ -11,6 +11,9 @@ module.exports = {
     userExists: function (id) {
         return Fs.existsSync(`data/${id}.json`);
     },
+    getUser: function (id) {
+        return JSON.parse(Fs.readFileSync(`data/${id}.json`));
+    },
     addSentence: function (id, sentence) {
         var data = JSON.parse(Fs.readFileSync(`data/${id}.json`));
         // tokenize
