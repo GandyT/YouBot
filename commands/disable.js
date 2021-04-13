@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 const Data = require("../data.js");
 
 module.exports = {
-    names: ["template"],
-    desc: "this is a template command",
+    names: ["disable"],
+    desc: "bot stops listening to you and deletes all your data",
     async execute(env) {
         /** 
          * @param  {Discord.Message} message
