@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 const Data = require("../data.js");
 
 module.exports = {
-    names: ["template"],
-    desc: "this is a template command",
+    names: ["stats"],
+    desc: "gets your stats",
     async execute(env) {
         /** 
          * @param  {Discord.Message} message
