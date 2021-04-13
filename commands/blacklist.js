@@ -16,7 +16,7 @@ module.exports = {
         if (message.author.id !== "782217735013662782")
             return message.channel.send("You do not have enough permission for this command");
         if (!args[1]) return message.channel.send("Specify an id");
-        var blacklist = JSON.stringify(Fs.readFileSync("blacklist.json"));
+        var blacklist = JSON.parse(Fs.readFileSync("blacklist.json"));
         if (blacklist.find(i => i == args[1])) return message.channel.send("That user is already blacklisted");
         if (Data.userExists(args[1])) Data.removeUser(args[1]);
         blacklist.push(args[1]);

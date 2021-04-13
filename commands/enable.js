@@ -13,7 +13,7 @@ module.exports = {
          * @param  {Discord.Client} client
         */
         const { message, args, client } = env; // Variables
-        var blacklist = JSON.stringify(Fs.readFileSync("blacklist.json"));
+        var blacklist = JSON.parse(Fs.readFileSync("blacklist.json"));
         if (blacklist.find(i => i == message.author.id)) return message.channel.send("You have been blacklisted from the bot");
 
         if (Data.userExists(message.author.id))
