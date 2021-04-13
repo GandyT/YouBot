@@ -15,9 +15,9 @@ module.exports = {
         if (!Data.userExists(message.author.id)) return message.channel.send("You do not have any data");
         var text = args.slice(1);
 
-        for (let i = 0; i < 10; ++i) {
+        for (let i = 0; i < 30; ++i) {
             var generated = Data.nextWord(message.author.id, text[text.length - 1]);
-            if (generated == text[text.length - 1]) continue;
+            if (generated == text[text.length - 1]) break;
             text.push(generated);
         }
 
