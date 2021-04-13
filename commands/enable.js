@@ -1,6 +1,7 @@
 /* EXTERNAL MODULES */
 const Discord = require("discord.js");
 const Data = require("../data.js");
+const Fs = require("fs");
 
 module.exports = {
     names: ["enable", "e"],
