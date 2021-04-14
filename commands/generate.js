@@ -14,6 +14,6 @@ module.exports = {
         const { message, args, client } = env; // Variables
         if (!Data.userExists(message.author.id)) return message.channel.send("You do not have any data");
 
-        message.channel.send(Data.generatePhrase(message.author.id));
+        message.channel.send(Data.generatePhrase(message.author.id) + ".");
     }
 }

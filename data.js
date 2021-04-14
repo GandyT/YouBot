@@ -51,7 +51,7 @@ module.exports = {
             data.SECOND[text[0]].END++;
         } else if (text.length >= 2) {
             var lastphrase = text[text.length - 2] + "_" + text[text.length - 1];
-            if (!data.REGULAR[lastphrase]) data.REGULAR[lastphrase] = { total: 0 };
+            if (!data.REGULAR[lastphrase]) data.REGULAR[lastphrase] = { TOTAL: 0 };
             if (!data.REGULAR[lastphrase].END) data.REGULAR[lastphrase].END = 0;
             data.REGULAR[lastphrase].TOTAL++;
             data.REGULAR[lastphrase].END++;
