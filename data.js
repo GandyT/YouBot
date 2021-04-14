@@ -118,7 +118,7 @@ module.exports = {
                     break;
                 }
             } else {
-                previous = previous + (value / data.FIRST.TOTAL);
+                firstPrevious = firstPrevious + (value / data.FIRST.TOTAL);
                 if (random < firstPrevious) {
                     firstChosen = key;
                     break;
@@ -156,6 +156,6 @@ module.exports = {
             sentence.push(nextWord);
         }
 
-        return sentence.join(" ");
+        return sentence.slice(0, sentence.length - 1).join(" ");
     }
 }
