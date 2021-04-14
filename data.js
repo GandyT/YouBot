@@ -110,6 +110,7 @@ module.exports = {
         var firstChosen = "";
 
         for (let [key, value] of Object.entries(data.FIRST)) {
+            if (key == "TOTAL") continue;
             if (!firstPrevious) {
                 firstPrevious = value / data.FIRST.TOTAL;
                 if (random < firstPrevious) {
@@ -117,7 +118,7 @@ module.exports = {
                     break;
                 }
             } else {
-                previous = previous + (value / total);
+                previous = previous + (value / data.FIRST.TOTAL);
                 if (random < firstPrevious) {
                     firstChosen = key;
                     break;
@@ -130,15 +131,16 @@ module.exports = {
         var secondPrevious = undefined;
         var secondChosen = "";
 
-        for (let [key, value] of Object.entries(data.SECOND)) {
+        for (let [key, value] of Object.entries(data.SECOND[firstChosen])) {
+            if (key == "TOTAL") continue;
             if (!secondPrevious) {
-                secondPrevious = value / data.FIRST.TOTAL;
+                secondPrevious = value / data.SECOND[firstChosen].TOTAL;
                 if (random < secondPrevious) {
                     secondChosen = key;
                     break;
                 }
             } else {
-                previous = previous + (value / total);
+                secondPrevious = secondPrevious + (value / data.SECOND[firstChosen].TOTAL);
                 if (random < secondPrevious) {
                     secondChosen = key;
                     break;
