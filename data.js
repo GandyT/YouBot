@@ -45,7 +45,7 @@ module.exports = {
         }
 
         if (text.length == 1) {
-            if (!data.SECOND[text[0]]) data.SECOND[text[0]] = { total: 0 }
+            if (!data.SECOND[text[0]]) data.SECOND[text[0]] = { TOTAL: 0 }
             if (!data.SECOND[text[0]].END) data.SECOND[text[0]].END = 0;
             data.SECOND[text[0]].TOTAL++;
             data.SECOND[text[0]].END++;
