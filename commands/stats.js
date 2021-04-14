@@ -15,10 +15,20 @@ module.exports = {
         if (!Data.userExists(message.author.id)) return message.channel.send("You do not have any data.");
 
         var user = Data.getUser(message.author.id);
+        var favoriteWord = "";
+        var amount = -1;
+        var recordedpatterns = 0;
+        for (let [key, value] of Object.entries(user)) {
+            if (value.total > amount) {
+                favoriteWord = key;
+                amount = value.total;
+            }
+            recordedpatterns += value.total;
+        }
         message.channel.send(
             new Discord.MessageEmbed()
                 .setTitle("**STATS**")
-                .setDescription(`Dictionary - ${Object.keys(user).length} words`)
+                .setDescription(`Dictionary - ${Object.keys(user).length} words\nfavorite word - ${favoriteWord}\nrecorded patterns - ${recordedpatterns}`)
         );
     }
 }
