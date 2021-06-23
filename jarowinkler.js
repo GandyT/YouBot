@@ -2,14 +2,10 @@ const JaroWinkler = function (s1, s2) {
     var m = 0;
 
     // Exit early if either are empty.
-    if (s1.length === 0 || s2.length === 0) {
-        return 0;
-    }
+    if (!s1 || !s2) return 0;
 
     // Exit early if they're an exact match.
-    if (s1 === s2) {
-        return 1;
-    }
+    if (s1 === s2) return 1;
 
     var range = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1,
         s1Matches = new Array(s1.length),
@@ -29,9 +25,7 @@ const JaroWinkler = function (s1, s2) {
     }
 
     // Exit early if no matches were found.
-    if (m === 0) {
-        return 0;
-    }
+    if (m === 0) return 0;
 
     // Count the transpositions.
     var k = n_trans = 0;

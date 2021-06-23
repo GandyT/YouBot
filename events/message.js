@@ -1,13 +1,11 @@
-const Discord = require("discord.js");
-const Data = require("../data.js");
+const {userExists, addSentence} = require("../data.js");
 
 module.exports = {
     event: "message",
     async execute(message) {
         const client = this;
 
-        if (message.author.bot) return;
-        if (message.channel.type === "dm") return;
+        if (!message.author.bot || !message.guild) return;
 
         if (message.content.startsWith(process.env.PREFIX)) {
             var env = {
@@ -23,6 +21,6 @@ module.exports = {
             if (command) return command.execute(env);
         }
 
-        if (Data.userExists(message.author.id)) return Data.addSentence(message.author.id, message.content);
+        if (userExists(message.author.id)) return addSentence(message.author.id, message.content);
     }
 }

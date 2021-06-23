@@ -17,12 +17,14 @@ module.exports = {
     addSentence: function (id, sentence) {
         var data = JSON.parse(Fs.readFileSync(`data/${id}.json`));
         // tokenize
-        var text = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+        // var text = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+        // removes anything other than a letter
+        var text = sentence.replace(/[^\w\d]/gi, "")
             .replace(/\s+/g, " ")
             .toLowerCase()
             .split(" ");
 
-        if (text.length === 0) return false;
+        if (!text) return false;
 
         for (let i = 0; i < text.length; ++i) {
             /* CASES */

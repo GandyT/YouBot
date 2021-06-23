@@ -10,8 +10,7 @@ var commands = [];
 commands.find = name => {
     name = name.toLowerCase();
     for (const cmd of commands)
-        if (cmd.names.includes(name))
-            return cmd;
+        if (cmd.names.includes(name)) return cmd;
     return null;
 }
 
